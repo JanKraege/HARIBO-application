@@ -1,578 +1,684 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Jan Kraege | HARIBO Marketing Trainee Application</title>
-<style>
-
-html {
-scroll-behavior:smooth
-}
-
-:root {
-
---red:#e30613;
---blue:#006eb8;
---darkblue:#004b93;
---sky:#11a9e8;
---yellow:#ffd500;
-
---white:#fff;
---light:#f8fbff;
---text:#1f2937;
---muted:#6b7280;
---border:#e5e7eb;
-
---shadow:0 14px 34px rgba(0,75,147,.13)
-
-}
-
-* {
-box-sizing:border-box
-}
-
-body {
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:var(--light);
-color:var(--text);
-line-height:1.6
-}
-
-nav {
-position:sticky;
-top:0;
-z-index:1000;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:28px;
-padding:16px 9%;
-background:rgba(255,255,255,.96);
-box-shadow:0 4px 18px rgba(0,0,0,.08);
-border-bottom:3px solid var(--red)
-}
-
-.logo {
-font-size:30px;
-font-weight:900;
-letter-spacing:1px;
-color:var(--red);
-text-shadow:-2px -2px 0 #fff,2px -2px 0 #fff,-2px 2px 0 #fff,2px 2px 0 #fff,0 4px 0 var(--darkblue);
-white-space:nowrap
-}
-
-.logo-small {
-display:block;
-font-size:10px;
-color:var(--darkblue);
-text-shadow:none;
-font-weight:800;
-letter-spacing:.6px;
-margin-top:5px;
-text-transform:uppercase
-}
-
-nav ul {
-display:flex;
-gap:22px;
-list-style:none;
-margin:0;
-padding:0;
-align-items:center;
-justify-content:flex-end;
-flex-wrap:wrap
-}
-
-nav a {
-color:var(--red);
-text-decoration:none;
-font-weight:900;
-font-size:14px
-}
-
-nav a:hover {
-color:var(--blue)
-}
-
-.nav-button {
-background:var(--red);
-color:#fff!important;
-padding:10px 18px;
-border-radius:999px;
-box-shadow:0 8px 22px rgba(227,6,19,.25)
-}
-
-header {
-min-height:660px;
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-color:#fff;
-text-align:center;
-background:radial-gradient(circle at 14% 78%,rgba(255,213,0,.85) 0 18px,transparent 19px),radial-gradient(circle at 86% 23%,rgba(227,6,19,.85) 0 28px,transparent 29px),radial-gradient(circle at 72% 82%,rgba(255,255,255,.5) 0 14px,transparent 15px),radial-gradient(circle at 30% 25%,rgba(255,255,255,.38) 0 9px,transparent 10px),linear-gradient(135deg,rgba(0,110,184,.95) 0%,rgba(16,168,232,.88) 48%,rgba(223,245,255,.64) 100%),linear-gradient(180deg,#006eb8 0%,#10a8e8 100%)
-}
-
-header:before {
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(20deg,transparent 0 25%,rgba(255,255,255,.20) 25.2% 25.7%,transparent 26%),linear-gradient(160deg,transparent 0 35%,rgba(255,255,255,.20) 35.2% 35.7%,transparent 36%),radial-gradient(ellipse at 50% 84%,rgba(0,75,147,.34) 0%,rgba(0,75,147,.2) 28%,transparent 55%);
-opacity:.95
-}
-
-header:after {
-content:"";
-position:absolute;
-left:-5%;
-right:-5%;
-bottom:-110px;
-height:260px;
-background:radial-gradient(circle at 10% 35%,rgba(255,213,0,.85) 0 24px,transparent 25px),radial-gradient(circle at 32% 18%,rgba(227,6,19,.9) 0 18px,transparent 19px),radial-gradient(circle at 76% 30%,rgba(255,213,0,.8) 0 20px,transparent 21px),linear-gradient(180deg,#86d44f 0%,#4fb332 72%);
-border-top:8px solid rgba(255,255,255,.6);
-transform:skewY(-3deg)
-}
-
-.candy {
-position:absolute;
-width:82px;
-height:48px;
-border-radius:28px;
-opacity:.9;
-filter:drop-shadow(0 12px 18px rgba(0,0,0,.16));
-transform:rotate(-18deg)
-}
-
-.candy.one {
-left:8%;
-top:26%;
-background:linear-gradient(135deg,#ff3b30,#ffd500)
-}
-
-.candy.two {
-right:10%;
-bottom:22%;
-background:linear-gradient(135deg,#111827,#e30613,#ffd500);
-transform:rotate(22deg)
-}
-
-.candy.three {
-left:28%;
-bottom:18%;
-width:58px;
-height:58px;
-background:radial-gradient(circle,#ff3b30,#c70016);
-border-radius:50%;
-transform:rotate(0)
-}
-
-.hero-content {
-position:relative;
-z-index:2;
-max-width:1060px;
-padding:90px 10%
-}
-
-.application-tag {
-display:inline-block;
-background:var(--red);
-color:#fff;
-padding:10px 18px;
-border-radius:999px;
-font-weight:900;
-letter-spacing:2px;
-text-transform:uppercase;
-font-size:13px;
-margin-bottom:24px;
-border:3px solid #fff;
-box-shadow:0 10px 24px rgba(0,0,0,.16)
-}
-
-header h1 {
-font-size:62px;
-line-height:1.05;
-margin:0;
-color:#fff;
-text-shadow:0 4px 16px rgba(0,75,147,.35)
-}
-
-header h2 {
-font-size:27px;
-font-weight:700;
-max-width:940px;
-margin:22px auto 0;
-color:rgba(255,255,255,.96)
-}
-
-.tagline {
-font-size:18px;
-max-width:900px;
-margin:26px auto 0;
-color:rgba(255,255,255,.96)
-}
-
-.hero-pill {
-display:inline-flex;
-gap:10px;
-align-items:center;
-justify-content:center;
-margin-top:38px;
-background:#fff;
-color:var(--red);
-border-radius:999px;
-padding:14px 22px;
-font-weight:900;
-box-shadow:0 12px 28px rgba(0,75,147,.22)
-}
-
-section {
-padding:74px 8%;
-max-width:1300px;
-margin:0 auto;
-scroll-margin-top:100px
-}
-
-h3 {
-font-size:42px;
-color:var(--darkblue);
-text-align:center;
-margin:0 0 18px;
-letter-spacing:-.4px
-}
-
-.section-subtitle {
-text-align:center;
-max-width:850px;
-margin:0 auto 40px;
-color:var(--muted);
-font-size:18px
-}
-
-.red-line {
-width:86px;
-height:5px;
-background:linear-gradient(90deg,var(--red),var(--yellow));
-margin:0 auto 34px;
-border-radius:999px
-}
-
-.intro-box,.intro {
-max-width:920px;
-margin:0 auto;
-text-align:center
-}
-
-.intro-box p,.intro p {
-font-size:18px;
-color:#374151;
-line-height:1.85;
-margin-bottom:14px
-}
-
-.intro-box strong,.intro strong {
-color:var(--darkblue)
-}
-
-.status-box {
-max-width:900px;
-margin:34px auto 0;
-background:linear-gradient(180deg,rgba(255,213,0,.18),rgba(255,255,255,.95)),#fff;
-border:2px solid rgba(255,213,0,.55);
-border-radius:28px;
-padding:32px;
-box-shadow:var(--shadow);
-text-align:center
-}
-
-.status-box h4 {
-color:var(--red);
-font-size:24px;
-margin:0 0 12px
-}
-
-.status-box p {
-color:#374151;
-font-size:17px;
-line-height:1.75;
-margin:0
-}
-
-.profile-grid,.program-grid {
-display:grid;
-grid-template-columns:repeat(2,minmax(300px,550px));
-justify-content:center;
-gap:28px
-}
-
-.profile-box,.program-box {
-background:#fff;
-border-radius:28px;
-padding:42px;
-min-height:315px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-text-align:center;
-box-shadow:var(--shadow);
-border:2px solid rgba(0,110,184,.10);
-border-top:8px solid var(--red)
-}
-
-.profile-box:nth-child(2),.profile-box:nth-child(3),.program-box:nth-child(2),.program-box:nth-child(3) {
-border-top-color:var(--yellow);
-background:#fffdf5
-}
-
-.profile-box h4,.program-box h4 {
-color:var(--red);
-font-size:27px;
-margin:12px 0 14px
-}
-
-.profile-box p,.program-box p {
-color:#374151;
-font-size:17px;
-margin:8px 0
-}
-
-.emoji {
-font-size:38px
-}
-
-.timeline {
-max-width:930px;
-margin:0 auto;
-padding-left:35px;
-border-left:5px solid var(--red)
-}
-
-.timeline div {
-margin-bottom:24px;
-font-size:17px;
-background:#fff;
-padding:24px 26px;
-border-radius:22px;
-box-shadow:0 8px 22px rgba(0,75,147,.08);
-border:1px solid rgba(0,110,184,.10)
-}
-
-.timeline strong {
-color:var(--darkblue)
-}
-
-.brand-band {
-max-width:none;
-background:radial-gradient(circle at 12% 30%,rgba(255,213,0,.3) 0 40px,transparent 42px),radial-gradient(circle at 88% 72%,rgba(227,6,19,.24) 0 46px,transparent 48px),linear-gradient(135deg,#006eb8 0%,#10a8e8 56%,#dff5ff 100%);
-color:#fff;
-padding:82px 10%;
-text-align:center;
-position:relative;
-overflow:hidden
-}
-
-.brand-band:before {
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(20deg,transparent 0 32%,rgba(255,255,255,.18) 32.2% 33%,transparent 33.2%),linear-gradient(150deg,transparent 0 62%,rgba(255,255,255,.15) 62.2% 63%,transparent 63.2%);
-opacity:.7
-}
-
-.brand-band h3,.brand-band p {
-position:relative;
-z-index:2
-}
-
-.brand-band h3 {
-color:#fff;
-text-shadow:0 3px 14px rgba(0,75,147,.28)
-}
-
-.brand-band p {
-max-width:940px;
-margin:12px auto;
-font-size:19px;
-line-height:1.85;
-color:rgba(255,255,255,.96)
-}
-
-.cards {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-gap:24px;
-margin-top:20px
-}
-
-.card {
-background:#fff;
-border-radius:28px;
-padding:32px;
-box-shadow:var(--shadow);
-text-align:center;
-border:2px solid rgba(0,110,184,.10)
-}
-
-.card.accent {
-background:radial-gradient(circle at 92% 8%,rgba(255,213,0,.34) 0 28px,transparent 30px),radial-gradient(circle at 8% 92%,rgba(227,6,19,.12) 0 34px,transparent 36px),#fff
-}
-
-.card h4 {
-color:var(--red);
-font-size:22px;
-margin:10px 0 12px
-}
-
-.card p {
-color:#374151;
-font-size:16.5px
-}
-
-.highlight {
-max-width:none;
-background:radial-gradient(circle at 14% 24%,rgba(255,213,0,.28) 0 40px,transparent 42px),radial-gradient(circle at 88% 34%,rgba(255,255,255,.20) 0 50px,transparent 52px),linear-gradient(135deg,#e30613 0%,#ff3b30 62%,#ff8a00 100%);
-color:#fff;
-padding:90px 10%;
-text-align:center;
-border-top:8px solid var(--yellow);
-scroll-margin-top:90px
-}
-
-.highlight h3 {
-color:#fff;
-font-size:44px;
-margin-bottom:18px;
-text-shadow:0 3px 12px rgba(0,0,0,.18)
-}
-
-.highlight p {
-max-width:900px;
-margin:14px auto;
-font-size:19px;
-line-height:1.85;
-color:rgba(255,255,255,.96)
-}
-
-footer {
-text-align:center;
-padding:50px 10%;
-background:var(--darkblue);
-color:#fff;
-border-top:8px solid var(--yellow)
-}
-
-footer p {
-margin:14px 0;
-font-size:17px;
-color:rgba(255,255,255,.92)
-}
-
-footer strong {
-font-size:19px;
-color:#fff
-}
-
-a {
-color:var(--red);
-text-decoration:none;
-font-weight:900
-}
-
-footer a {
-color:var(--yellow)
-}
-
-footer a:hover {
-color:#fff
-}
-
-@media(max-width:1000px) {
-nav {
-flex-direction:column;
-gap:16px
-}
-
-nav ul {
-justify-content:center;
-gap:14px
-}
-
-header h1 {
-font-size:52px
-}
-
-}
-
-@media(max-width:800px) {
-nav {
-padding:16px 6%
-}
-
-header {
-min-height:620px
-}
-
-header h1 {
-font-size:39px
-}
-
-header h2 {
-font-size:21px
-}
-
-h3 {
-font-size:31px
-}
-
-section {
-padding:56px 6%
-}
-
-.profile-grid,.program-grid {
-grid-template-columns:1fr
-}
-
-.profile-box,.program-box {
-min-height:auto;
-padding:34px 24px
-}
-
-.timeline {
-padding-left:22px
-}
-
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jan Kraege | HARIBO Marketing Trainee Application</title>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --haribo-red: #e30613;
+      --haribo-blue: #006eb8;
+      --haribo-dark-blue: #004b93;
+      --haribo-yellow: #ffd500;
+      --haribo-light-blue: #dff5ff;
+      --haribo-sky: #10a8e8;
+      --haribo-white: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --light: #f8fbff;
+      --border: #e5e7eb;
+      --shadow: 0 14px 34px rgba(0, 75, 147, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /*
+      LANGUAGE TOGGLE
+      ------------------------------------------------------------
+      Wichtig:
+      Es werden NIE beide Sprachen gleichzeitig angezeigt.
+      Deutsch ist Standard.
+      Der Button schaltet die gesamte Website zwischen Deutsch und Englisch um.
+    */
+
+    .lang-en,
+    .lang-de {
+      display: none !important;
+    }
+
+    body.show-de .lang-de {
+      display: initial !important;
+    }
+
+    body.show-en .lang-en {
+      display: initial !important;
+    }
+
+    body.show-de p.lang-de,
+    body.show-de div.lang-de,
+    body.show-de h1.lang-de,
+    body.show-de h2.lang-de,
+    body.show-de h3.lang-de,
+    body.show-de h4.lang-de,
+    body.show-de span.lang-de,
+    body.show-de strong.lang-de {
+      display: block !important;
+    }
+
+    body.show-en p.lang-en,
+    body.show-en div.lang-en,
+    body.show-en h1.lang-en,
+    body.show-en h2.lang-en,
+    body.show-en h3.lang-en,
+    body.show-en h4.lang-en,
+    body.show-en span.lang-en,
+    body.show-en strong.lang-en {
+      display: block !important;
+    }
+
+    body.show-de .inline.lang-de,
+    body.show-en .inline.lang-en {
+      display: inline !important;
+    }
+
+    body.show-de .hero-pill.lang-de,
+    body.show-de .application-tag.lang-de,
+    body.show-en .hero-pill.lang-en,
+    body.show-en .application-tag.lang-en {
+      display: inline-flex !important;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
+      padding: 16px 9%;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      border-bottom: 3px solid var(--haribo-red);
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: var(--haribo-red);
+      text-shadow:
+        -2px -2px 0 var(--haribo-white),
+        2px -2px 0 var(--haribo-white),
+        -2px 2px 0 var(--haribo-white),
+        2px 2px 0 var(--haribo-white),
+        0 4px 0 var(--haribo-dark-blue);
+      white-space: nowrap;
+    }
+
+    .logo-small {
+      display: block;
+      font-size: 10px;
+      color: var(--haribo-dark-blue);
+      text-shadow: none;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--haribo-red);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--haribo-blue);
+    }
+
+    .language-toggle {
+      background: var(--haribo-blue);
+      color: var(--haribo-white);
+      border: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0,110,184,0.22);
+    }
+
+    .language-toggle:hover {
+      background: var(--haribo-dark-blue);
+    }
+
+    .nav-button {
+      background: var(--haribo-red);
+      color: var(--haribo-white) !important;
+      padding: 10px 18px;
+      border-radius: 999px;
+      box-shadow: 0 8px 22px rgba(227,6,19,0.25);
+    }
+
+    header {
+      min-height: 660px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: var(--haribo-white);
+      text-align: center;
+      background:
+        radial-gradient(circle at 14% 78%, rgba(255,213,0,0.85) 0 18px, transparent 19px),
+        radial-gradient(circle at 86% 23%, rgba(227,6,19,0.85) 0 28px, transparent 29px),
+        radial-gradient(circle at 72% 82%, rgba(255,255,255,0.50) 0 14px, transparent 15px),
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.38) 0 9px, transparent 10px),
+        linear-gradient(135deg, rgba(0,110,184,0.95) 0%, rgba(16,168,232,0.88) 48%, rgba(223,245,255,0.64) 100%),
+        linear-gradient(180deg, #006eb8 0%, #10a8e8 100%);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(20deg, transparent 0 25%, rgba(255,255,255,0.20) 25.2% 25.7%, transparent 26%),
+        linear-gradient(160deg, transparent 0 35%, rgba(255,255,255,0.20) 35.2% 35.7%, transparent 36%),
+        radial-gradient(ellipse at 50% 84%, rgba(0,75,147,0.34) 0%, rgba(0,75,147,0.20) 28%, transparent 55%);
+      opacity: 0.95;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      left: -5%;
+      right: -5%;
+      bottom: -110px;
+      height: 260px;
+      background:
+        radial-gradient(circle at 10% 35%, rgba(255,213,0,0.85) 0 24px, transparent 25px),
+        radial-gradient(circle at 32% 18%, rgba(227,6,19,0.90) 0 18px, transparent 19px),
+        radial-gradient(circle at 76% 30%, rgba(255,213,0,0.80) 0 20px, transparent 21px),
+        linear-gradient(180deg, #86d44f 0%, #4fb332 72%);
+      border-top: 8px solid rgba(255,255,255,0.60);
+      transform: skewY(-3deg);
+    }
+
+    .candy {
+      position: absolute;
+      width: 82px;
+      height: 48px;
+      border-radius: 28px;
+      opacity: 0.90;
+      filter: drop-shadow(0 12px 18px rgba(0,0,0,0.16));
+      transform: rotate(-18deg);
+    }
+
+    .candy.one {
+      left: 8%;
+      top: 26%;
+      background: linear-gradient(135deg, #ff3b30, #ffd500);
+    }
+
+    .candy.two {
+      right: 10%;
+      bottom: 22%;
+      background: linear-gradient(135deg, #111827, #e30613, #ffd500);
+      transform: rotate(22deg);
+    }
+
+    .candy.three {
+      left: 28%;
+      bottom: 18%;
+      width: 58px;
+      height: 58px;
+      background: radial-gradient(circle, #ff3b30, #c70016);
+      border-radius: 50%;
+      transform: rotate(0deg);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1060px;
+      padding: 90px 10%;
+    }
+
+    .application-tag {
+      background: var(--haribo-red);
+      color: var(--haribo-white);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 24px;
+      border: 3px solid var(--haribo-white);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+      justify-content: center;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 62px;
+      line-height: 1.05;
+      margin: 0;
+      color: var(--haribo-white);
+      text-shadow: 0 4px 16px rgba(0,75,147,0.35);
+    }
+
+    header h2 {
+      font-size: 27px;
+      font-weight: 700;
+      max-width: 940px;
+      margin: 22px auto 0;
+      color: rgba(255,255,255,0.96);
+    }
+
+    .tagline {
+      font-size: 18px;
+      max-width: 900px;
+      margin: 26px auto 0;
+      color: rgba(255,255,255,0.96);
+    }
+
+    .hero-pill {
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 38px;
+      background: var(--haribo-white);
+      color: var(--haribo-red);
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(0,75,147,0.22);
+    }
+
+    section {
+      padding: 74px 8%;
+      max-width: 1300px;
+      margin: 0 auto;
+      scroll-margin-top: 100px;
+    }
+
+    h3 {
+      font-size: 42px;
+      color: var(--haribo-dark-blue);
+      text-align: center;
+      margin: 0 0 18px;
+      letter-spacing: -0.4px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 40px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .red-line {
+      width: 86px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--haribo-red), var(--haribo-yellow));
+      margin: 0 auto 34px;
+      border-radius: 999px;
+    }
+
+    .intro-box,
+    .intro {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .intro-box p,
+    .intro p {
+      font-size: 18px;
+      color: #374151;
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+
+    .intro-box strong,
+    .intro strong {
+      color: var(--haribo-dark-blue);
+    }
+
+    .status-box {
+      max-width: 900px;
+      margin: 34px auto 0;
+      background:
+        linear-gradient(180deg, rgba(255,213,0,0.18), rgba(255,255,255,0.95)),
+        var(--haribo-white);
+      border: 2px solid rgba(255,213,0,0.55);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .status-box h4 {
+      color: var(--haribo-red);
+      font-size: 24px;
+      margin: 0 0 12px;
+    }
+
+    .status-box p {
+      color: #374151;
+      font-size: 17px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .profile-grid,
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(300px, 550px));
+      justify-content: center;
+      gap: 28px;
+    }
+
+    .profile-box,
+    .program-box {
+      background: var(--haribo-white);
+      border-radius: 28px;
+      padding: 42px;
+      min-height: 315px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 2px solid rgba(0,110,184,0.10);
+      border-top: 8px solid var(--haribo-red);
+    }
+
+    .profile-box:nth-child(2),
+    .profile-box:nth-child(3),
+    .program-box:nth-child(2),
+    .program-box:nth-child(3) {
+      border-top-color: var(--haribo-yellow);
+      background: #fffdf5;
+    }
+
+    .profile-box h4,
+    .program-box h4 {
+      color: var(--haribo-red);
+      font-size: 27px;
+      margin: 12px 0 14px;
+    }
+
+    .profile-box p,
+    .program-box p {
+      color: #374151;
+      font-size: 17px;
+      margin: 8px 0;
+    }
+
+    .emoji {
+      font-size: 38px;
+    }
+
+    .timeline {
+      max-width: 930px;
+      margin: 0 auto;
+      padding-left: 35px;
+      border-left: 5px solid var(--haribo-red);
+    }
+
+    .timeline div {
+      margin-bottom: 24px;
+      font-size: 17px;
+      background: var(--haribo-white);
+      padding: 24px 26px;
+      border-radius: 22px;
+      box-shadow: 0 8px 22px rgba(0,75,147,0.08);
+      border: 1px solid rgba(0,110,184,0.10);
+    }
+
+    .timeline strong {
+      color: var(--haribo-dark-blue);
+    }
+
+    .brand-band {
+      max-width: none;
+      background:
+        radial-gradient(circle at 12% 30%, rgba(255,213,0,0.30) 0 40px, transparent 42px),
+        radial-gradient(circle at 88% 72%, rgba(227,6,19,0.24) 0 46px, transparent 48px),
+        linear-gradient(135deg, #006eb8 0%, #10a8e8 56%, #dff5ff 100%);
+      color: var(--haribo-white);
+      padding: 82px 10%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(20deg, transparent 0 32%, rgba(255,255,255,0.18) 32.2% 33%, transparent 33.2%),
+        linear-gradient(150deg, transparent 0 62%, rgba(255,255,255,0.15) 62.2% 63%, transparent 63.2%);
+      opacity: 0.7;
+    }
+
+    .brand-band h3,
+    .brand-band p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-band h3 {
+      color: var(--haribo-white);
+      text-shadow: 0 3px 14px rgba(0,75,147,0.28);
+    }
+
+    .brand-band p {
+      max-width: 940px;
+      margin: 12px auto;
+      font-size: 19px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.96);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--haribo-white);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border: 2px solid rgba(0,110,184,0.10);
+    }
+
+    .card.accent {
+      background:
+        radial-gradient(circle at 92% 8%, rgba(255,213,0,0.34) 0 28px, transparent 30px),
+        radial-gradient(circle at 8% 92%, rgba(227,6,19,0.12) 0 34px, transparent 36px),
+        var(--haribo-white);
+    }
+
+    .card h4 {
+      color: var(--haribo-red);
+      font-size: 22px;
+      margin: 10px 0 12px;
+    }
+
+    .card p {
+      color: #374151;
+      font-size: 16.5px;
+    }
+
+    .highlight {
+      max-width: none;
+      background:
+        radial-gradient(circle at 14% 24%, rgba(255,213,0,0.28) 0 40px, transparent 42px),
+        radial-gradient(circle at 88% 34%, rgba(255,255,255,0.20) 0 50px, transparent 52px),
+        linear-gradient(135deg, #e30613 0%, #ff3b30 62%, #ff8a00 100%);
+      color: var(--haribo-white);
+      padding: 90px 10%;
+      text-align: center;
+      border-top: 8px solid var(--haribo-yellow);
+      scroll-margin-top: 90px;
+    }
+
+    .highlight h3 {
+      color: var(--haribo-white);
+      font-size: 44px;
+      margin-bottom: 18px;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.18);
+    }
+
+    .highlight p {
+      max-width: 900px;
+      margin: 14px auto;
+      font-size: 19px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.96);
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 10%;
+      background: var(--haribo-dark-blue);
+      color: var(--haribo-white);
+      border-top: 8px solid var(--haribo-yellow);
+    }
+
+    footer p {
+      margin: 14px 0;
+      font-size: 17px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    footer strong {
+      font-size: 19px;
+      color: var(--haribo-white);
+    }
+
+    a {
+      color: var(--haribo-red);
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    footer a {
+      color: var(--haribo-yellow);
+    }
+
+    footer a:hover {
+      color: var(--haribo-white);
+    }
+
+    @media (max-width: 1000px) {
+      nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      nav ul {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      header h1 {
+        font-size: 52px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        padding: 16px 6%;
+      }
+
+      header {
+        min-height: 620px;
+      }
+
+      header h1 {
+        font-size: 39px;
+      }
+
+      header h2 {
+        font-size: 21px;
+      }
+
+      h3 {
+        font-size: 31px;
+      }
+
+      section {
+        padding: 56px 6%;
+      }
+
+      .profile-grid,
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-box,
+      .program-box {
+        min-height: auto;
+        padding: 34px 24px;
+      }
+
+      .timeline {
+        padding-left: 22px;
+      }
+    }
+  </style>
 </head>
 
-<!-- ============================================================ -->
-<!-- HARIBO APPLICATION WEBSITE - JAN KRAEGE -->
-<!-- Full expanded copy-paste version for GitHub index.html -->
-<!-- ============================================================ -->
-<body class="lang-en">
+<body class="show-de">
 
   <nav>
     <div class="logo">
       HARIBO
       <span class="logo-small">
-        <span data-lang="en" class="lang-inline">Marketing Trainee DACH Application</span>
-        <span data-lang="de" class="lang-inline">Bewerbung Trainee Marketing DACH</span>
+        <span class="lang-de inline">Bewerbung Trainee Marketing DACH</span>
+        <span class="lang-en inline">Marketing Trainee DACH Application</span>
       </span>
     </div>
 
     <ul>
-      <li><a href="#intro"><span data-lang="en" class="lang-inline">About Me</span><span data-lang="de" class="lang-inline">Über mich</span></a></li>
-      <li><a href="#profile">Profile</a></li>
-      <li><a href="#journey"><span data-lang="en" class="lang-inline">Journey</span><span data-lang="de" class="lang-inline">Werdegang</span></a></li>
-      <li><a href="#haribo">Why HARIBO</a></li>
-      <li><a href="#program"><span data-lang="en" class="lang-inline">Program Fit</span><span data-lang="de" class="lang-inline">Programm-Fit</span></a></li>
-      <li><a href="#requirements"><span data-lang="en" class="lang-inline">Requirements</span><span data-lang="de" class="lang-inline">Anforderungen</span></a></li>
-      <li><a href="#ideas">Ideas</a></li>
-      <li><button class="language-toggle" id="languageToggle" type="button">Deutsch</button></li>
-      <li><a class="nav-button" href="#contact">Contact</a></li>
+      <li><a href="#intro"><span class="lang-de inline">Über mich</span><span class="lang-en inline">About Me</span></a></li>
+      <li><a href="#profile"><span class="lang-de inline">Profil</span><span class="lang-en inline">Profile</span></a></li>
+      <li><a href="#journey"><span class="lang-de inline">Werdegang</span><span class="lang-en inline">Journey</span></a></li>
+      <li><a href="#haribo"><span class="lang-de inline">Warum HARIBO</span><span class="lang-en inline">Why HARIBO</span></a></li>
+      <li><a href="#program"><span class="lang-de inline">Programm-Fit</span><span class="lang-en inline">Program Fit</span></a></li>
+      <li><a href="#requirements"><span class="lang-de inline">Anforderungen</span><span class="lang-en inline">Requirements</span></a></li>
+      <li><a href="#ideas"><span class="lang-de inline">Ideen</span><span class="lang-en inline">Ideas</span></a></li>
+      <li><button class="language-toggle" id="languageToggle" type="button">English</button></li>
+      <li><a class="nav-button" href="#contact"><span class="lang-de inline">Kontakt</span><span class="lang-en inline">Contact</span></a></li>
     </ul>
   </nav>
 
@@ -582,45 +688,45 @@ padding-left:22px
     <div class="candy three"></div>
 
     <div class="hero-content">
-      <p class="application-tag" data-lang="en">HARIBO Application</p>
-      <p class="application-tag" data-lang="de">HARIBO Bewerbung</p>
+      <p class="application-tag lang-de">HARIBO Bewerbung</p>
+      <p class="application-tag lang-en">HARIBO Application</p>
 
-      <h1 data-lang="en">Trainee Marketing DACH</h1>
-      <h1 data-lang="de">Trainee Marketing DACH</h1>
+      <h1 class="lang-de">Trainee Marketing DACH</h1>
+      <h1 class="lang-en">Trainee Marketing DACH</h1>
 
-      <h2 data-lang="en">Combining FMCG experience, consumer understanding and creative-analytical thinking to help bring joy to brands, products and consumers.</h2>
-      <h2 data-lang="de">FMCG-Erfahrung, Konsumentenverständnis und kreativ-analytisches Denken – für Marken, Produkte und Konsument:innen, die Freude schaffen.</h2>
+      <h2 class="lang-de">FMCG-Erfahrung, Konsumentenverständnis und kreativ-analytisches Denken – für Marken, Produkte und Konsument:innen, die Freude schaffen.</h2>
+      <h2 class="lang-en">Combining FMCG experience, consumer understanding and creative-analytical thinking to help bring joy to brands, products and consumers.</h2>
 
-      <p class="tagline" data-lang="en">Business Management Graduate • FMCG Marketing Experience • Market Research • Brand & Consumer Insights</p>
-      <p class="tagline" data-lang="de">Business Management Graduate • FMCG-Marketing-Erfahrung • Marktforschung • Brand & Consumer Insights</p>
+      <p class="tagline lang-de">Business Management Graduate • FMCG-Marketing-Erfahrung • Marktforschung • Brand & Consumer Insights</p>
+      <p class="tagline lang-en">Business Management Graduate • FMCG Marketing Experience • Market Research • Brand & Consumer Insights</p>
 
-      <div class="hero-pill" data-lang="en">Marketing • Brand Management • Trade Marketing • DACH</div>
-      <div class="hero-pill" data-lang="de">Marketing • Markenmanagement • Trade Marketing • DACH</div>
+      <div class="hero-pill lang-de">Marketing • Markenmanagement • Trade Marketing • DACH</div>
+      <div class="hero-pill lang-en">Marketing • Brand Management • Trade Marketing • DACH</div>
     </div>
   </header>
 
   <section id="intro">
     <div class="intro-box">
-      <h3 data-lang="en">Dear HARIBO Team,</h3>
-      <h3 data-lang="de">Liebes HARIBO Team,</h3>
+      <h3 class="lang-de">Liebes HARIBO Team,</h3>
+      <h3 class="lang-en">Dear HARIBO Team,</h3>
       <div class="red-line"></div>
 
-      <p data-lang="en">My name is Jan Kraege and I am currently completing my Master of Business Management at the University of Technology Sydney.</p>
-      <p data-lang="de">Mein Name ist Jan Kraege und ich schließe derzeit meinen Master of Business Management an der University of Technology Sydney ab.</p>
+      <p class="lang-de">Mein Name ist Jan Kraege und ich schließe derzeit meinen Master of Business Management an der University of Technology Sydney ab.</p>
+      <p class="lang-en">My name is Jan Kraege and I am currently completing my Master of Business Management at the University of Technology Sydney.</p>
 
-      <p data-lang="en">What started as an exchange semester in Australia developed into several years of studying, working and growing in an international environment. During this time, I gained practical experience in marketing, sales, customer insights, market analysis, campaign execution and brand-related projects.</p>
-      <p data-lang="de">Was mit einem Auslandssemester in Australien begann, entwickelte sich zu mehreren Jahren Studium, Arbeit und persönlicher Weiterentwicklung in einem internationalen Umfeld. In dieser Zeit sammelte ich praktische Erfahrung in Marketing, Sales, Customer Insights, Marktanalysen, Kampagnenumsetzung und markenbezogenen Projekten.</p>
+      <p class="lang-de">Was mit einem Auslandssemester in Australien begann, entwickelte sich zu mehreren Jahren Studium, Arbeit und persönlicher Weiterentwicklung in einem internationalen Umfeld. In dieser Zeit sammelte ich praktische Erfahrung in Marketing, Sales, Customer Insights, Marktanalysen, Kampagnenumsetzung und markenbezogenen Projekten.</p>
+      <p class="lang-en">What started as an exchange semester in Australia developed into several years of studying, working and growing in an international environment. During this time, I gained practical experience in marketing, sales, customer insights, market analysis, campaign execution and brand-related projects.</p>
 
-      <p data-lang="en">The HARIBO Trainee Marketing DACH program immediately stood out to me because it directly combines the topics named in the role description that excite me most: <strong>brand management, product innovations, relaunches, promotions, packaging development, market research, competitor and assortment analyses, Trade Marketing and cross-functional collaboration across Key Account Management, Field Sales and Research & Development</strong>.</p>
-      <p data-lang="de">Das HARIBO Traineeprogramm Marketing DACH hat mich sofort angesprochen, weil es genau die Themen verbindet, die mich besonders interessieren: <strong>Markenmanagement, Produktinnovationen, Relaunches, Promotions, Verpackungsentwicklung, Marktforschung, Wettbewerbs- und Sortimentsanalysen, Trade Marketing sowie die Zusammenarbeit mit Key Account Management, Außendienst und Forschung & Entwicklung</strong>.</p>
+      <p class="lang-de">Das HARIBO Traineeprogramm Marketing DACH hat mich sofort angesprochen, weil es genau die Themen verbindet, die mich besonders interessieren: <strong>Markenmanagement, Produktinnovationen, Relaunches, Promotions, Verpackungsentwicklung, Marktforschung, Wettbewerbs- und Sortimentsanalysen, Trade Marketing sowie die Zusammenarbeit mit Key Account Management, Außendienst und Forschung & Entwicklung</strong>.</p>
+      <p class="lang-en">The HARIBO Trainee Marketing DACH program immediately stood out to me because it directly combines the topics named in the role description that excite me most: <strong>brand management, product innovations, relaunches, promotions, packaging development, market research, competitor and assortment analyses, Trade Marketing and cross-functional collaboration across Key Account Management, Field Sales and Research & Development</strong>.</p>
     </div>
 
     <div class="status-box">
-      <h4 data-lang="en">Current Study Status</h4>
-      <h4 data-lang="de">Aktueller Studienstatus</h4>
+      <h4 class="lang-de">Aktueller Studienstatus</h4>
+      <h4 class="lang-en">Current Study Status</h4>
 
-      <p data-lang="en">I am currently in the final stage of my Master’s degree. My final completion documents and grades are expected shortly, which is why I am currently providing the latest available academic record.</p>
-      <p data-lang="de">Ich befinde mich aktuell in der finalen Phase meines Masterstudiums. Die finalen Abschlussunterlagen und Noten werden mir voraussichtlich in Kürze vorliegen; daher reiche ich derzeit den aktuell verfügbaren Leistungsnachweis ein.</p>
+      <p class="lang-de">Ich befinde mich aktuell in der finalen Phase meines Masterstudiums. Die finalen Abschlussunterlagen und Noten werden mir voraussichtlich in Kürze vorliegen; daher reiche ich derzeit den aktuell verfügbaren Leistungsnachweis ein.</p>
+      <p class="lang-en">I am currently in the final stage of my Master’s degree. My final completion documents and grades are expected shortly, which is why I am currently providing the latest available academic record.</p>
     </div>
   </section>
 
@@ -628,114 +734,97 @@ padding-left:22px
     <h3>My Profile in 60 Seconds</h3>
     <div class="red-line"></div>
 
-    <p class="section-subtitle" data-lang="en">A marketing-oriented business graduate with international experience, FMCG exposure and a strong interest in brand management, market research, product innovation, promotions, packaging, trade marketing and consumer trends.</p>
-    <p class="section-subtitle" data-lang="de">Ein marketingorientierter Business Graduate mit internationaler Erfahrung, FMCG-Bezug und starkem Interesse an Markenmanagement, Marktforschung, Produktinnovationen, Promotions, Packaging, Trade Marketing und Consumer Trends.</p>
+    <p class="section-subtitle lang-de">Ein marketingorientierter Business Graduate mit internationaler Erfahrung, FMCG-Bezug und starkem Interesse an Markenmanagement, Marktforschung, Produktinnovationen, Promotions, Packaging, Trade Marketing und Consumer Trends.</p>
+    <p class="section-subtitle lang-en">A marketing-oriented business graduate with international experience, FMCG exposure and a strong interest in brand management, market research, product innovation, promotions, packaging, trade marketing and consumer trends.</p>
 
     <div class="profile-grid">
       <div class="profile-box">
         <div class="emoji">🍬</div>
-        <h4 data-lang="en">FMCG & Brand Interest</h4>
-        <h4 data-lang="de">FMCG & Markeninteresse</h4>
-        <p data-lang="en">I am strongly interested in how consumer brands are positioned, developed and translated into meaningful customer experiences.</p>
-        <p data-lang="de">Mich interessiert besonders, wie Konsumgütermarken positioniert, weiterentwickelt und in relevante Kundenerlebnisse übersetzt werden.</p>
-        <p data-lang="en">Through my experience at BRITA Australia, I gained first-hand exposure to FMCG-related market and customer analysis.</p>
-        <p data-lang="de">Durch meine Erfahrung bei BRITA Australia konnte ich erste FMCG-nahe Einblicke in Markt- und Kundenanalysen gewinnen.</p>
-        <p data-lang="en">What excites me most is connecting consumer understanding with creative and commercial brand execution.</p>
-        <p data-lang="de">Besonders spannend finde ich die Verbindung von Konsumentenverständnis, Kreativität und kommerzieller Markenaktivierung.</p>
+        <h4 class="lang-de">FMCG & Markeninteresse</h4>
+        <h4 class="lang-en">FMCG & Brand Interest</h4>
+        <p class="lang-de">Mich interessiert besonders, wie Konsumgütermarken positioniert, weiterentwickelt und in relevante Kundenerlebnisse übersetzt werden.</p>
+        <p class="lang-en">I am strongly interested in how consumer brands are positioned, developed and translated into meaningful customer experiences.</p>
+        <p class="lang-de">Durch meine Erfahrung bei BRITA Australia konnte ich erste FMCG-nahe Einblicke in Markt- und Kundenanalysen gewinnen.</p>
+        <p class="lang-en">Through my experience at BRITA Australia, I gained first-hand exposure to FMCG-related market and customer analysis.</p>
       </div>
 
       <div class="profile-box">
         <div class="emoji">📊</div>
-        <h4 data-lang="en">Market Research & Insights</h4>
-        <h4 data-lang="de">Marktforschung & Insights</h4>
-        <p data-lang="en">I enjoy working with market data, customer behaviour and competitive information to identify business opportunities.</p>
-        <p data-lang="de">Ich arbeite gerne mit Marktdaten, Kundenverhalten und Wettbewerbsinformationen, um Geschäftspotenziale abzuleiten.</p>
-        <p data-lang="en">At BRITA Australia, I analysed customer segments, market potential and commercial viability for a potential subscription model.</p>
-        <p data-lang="de">Bei BRITA Australia analysierte ich Kundensegmente, Marktpotenzial und kommerzielle Machbarkeit für ein potenzielles Subscription Model.</p>
-        <p data-lang="en">This strengthened my ability to turn complex information into clear recommendations.</p>
-        <p data-lang="de">Dadurch konnte ich meine Fähigkeit stärken, komplexe Informationen in klare Handlungsempfehlungen zu übersetzen.</p>
+        <h4 class="lang-de">Marktforschung & Insights</h4>
+        <h4 class="lang-en">Market Research & Insights</h4>
+        <p class="lang-de">Ich arbeite gerne mit Marktdaten, Kundenverhalten und Wettbewerbsinformationen, um Geschäftspotenziale abzuleiten.</p>
+        <p class="lang-en">I enjoy working with market data, customer behaviour and competitive information to identify business opportunities.</p>
+        <p class="lang-de">Bei BRITA Australia analysierte ich Kundensegmente, Marktpotenzial und kommerzielle Machbarkeit für ein potenzielles Subscription Model.</p>
+        <p class="lang-en">At BRITA Australia, I analysed customer segments, market potential and commercial viability for a potential subscription model.</p>
       </div>
 
       <div class="profile-box">
         <div class="emoji">🎨</div>
-        <h4 data-lang="en">Creative & Analytical</h4>
-        <h4 data-lang="de">Kreativ & analytisch</h4>
-        <p data-lang="en">I like combining structured analysis with creative ideas for campaigns, products and brand communication.</p>
-        <p data-lang="de">Ich verbinde gerne strukturierte Analyse mit kreativen Ideen für Kampagnen, Produkte und Markenkommunikation.</p>
-        <p data-lang="en">At Tokyo Headspa in Sydney, I supported social media, EDM campaign management, content ideation and brand/service portfolio topics.</p>
-        <p data-lang="de">Bei Tokyo Headspa in Sydney unterstützte ich Social Media, EDM Campaign Management, Content Ideation sowie Brand- und Service-Portfolio-Themen.</p>
-        <p data-lang="en">This helped me understand how insights and creativity can work together in marketing.</p>
-        <p data-lang="de">Diese Erfahrung zeigte mir, wie Insights und Kreativität im Marketing zusammenwirken können.</p>
+        <h4 class="lang-de">Kreativ & analytisch</h4>
+        <h4 class="lang-en">Creative & Analytical</h4>
+        <p class="lang-de">Ich verbinde gerne strukturierte Analyse mit kreativen Ideen für Kampagnen, Produkte und Markenkommunikation.</p>
+        <p class="lang-en">I like combining structured analysis with creative ideas for campaigns, products and brand communication.</p>
+        <p class="lang-de">Bei Tokyo Headspa in Sydney unterstützte ich Social Media, EDM Campaign Management, Content Ideation sowie Brand- und Service-Portfolio-Themen.</p>
+        <p class="lang-en">At Tokyo Headspa in Sydney, I supported social media, EDM campaign management, content ideation and brand/service portfolio topics.</p>
       </div>
 
       <div class="profile-box">
         <div class="emoji">🤝</div>
-        <h4 data-lang="en">Cross-Functional Collaboration</h4>
-        <h4 data-lang="de">Schnittstellenarbeit</h4>
-        <p data-lang="en">I enjoy working with different teams and functions to solve business challenges from multiple perspectives.</p>
-        <p data-lang="de">Ich arbeite gerne mit verschiedenen Teams und Funktionen zusammen, um Herausforderungen aus mehreren Perspektiven zu lösen.</p>
-        <p data-lang="en">My previous roles involved coordination across Marketing, Sales, E-commerce and external partners.</p>
-        <p data-lang="de">Meine bisherigen Rollen umfassten die Koordination mit Marketing, Sales, E-Commerce und externen Partnern.</p>
-        <p data-lang="en">This fits well with HARIBO’s collaboration across Marketing, Trade Marketing, Key Account Management, Field Sales and R&D.</p>
-        <p data-lang="de">Das passt sehr gut zur Zusammenarbeit bei HARIBO zwischen Marketing, Trade Marketing, Key Account Management, Außendienst und R&D.</p>
+        <h4 class="lang-de">Schnittstellenarbeit</h4>
+        <h4 class="lang-en">Cross-Functional Collaboration</h4>
+        <p class="lang-de">Ich arbeite gerne mit verschiedenen Teams und Funktionen zusammen, um Herausforderungen aus mehreren Perspektiven zu lösen.</p>
+        <p class="lang-en">I enjoy working with different teams and functions to solve business challenges from multiple perspectives.</p>
+        <p class="lang-de">Meine bisherigen Rollen umfassten die Koordination mit Marketing, Sales, E-Commerce und externen Partnern.</p>
+        <p class="lang-en">My previous roles involved coordination across Marketing, Sales, E-commerce and external partners.</p>
       </div>
     </div>
   </section>
 
   <section id="journey">
-    <h3 data-lang="en">My International Journey</h3>
-    <h3 data-lang="de">Mein internationaler Werdegang</h3>
+    <h3 class="lang-de">Mein internationaler Werdegang</h3>
+    <h3 class="lang-en">My International Journey</h3>
     <div class="red-line"></div>
 
     <div class="timeline">
       <div>
-        <strong data-lang="en">🇩🇪 Germany — Bachelor Studies in Business Administration</strong>
-        <strong data-lang="de">🇩🇪 Deutschland — Bachelorstudium in Business Administration</strong><br />
-        <span data-lang="en" class="lang-inline">Built a foundation in Marketing, International Management and Organisational Psychology at Hochschule Fresenius in Wiesbaden.</span>
-        <span data-lang="de" class="lang-inline">Aufbau einer Grundlage in Marketing, International Management und Organisationspsychologie an der Hochschule Fresenius in Wiesbaden.</span>
+        <strong class="lang-de">🇩🇪 Deutschland — Bachelorstudium in Business Administration</strong>
+        <strong class="lang-en">🇩🇪 Germany — Bachelor Studies in Business Administration</strong>
+        <br />
+        <span class="lang-de inline">Aufbau einer Grundlage in Marketing, International Management und Organisationspsychologie an der Hochschule Fresenius in Wiesbaden.</span>
+        <span class="lang-en inline">Built a foundation in Marketing, International Management and Organisational Psychology at Hochschule Fresenius in Wiesbaden.</span>
       </div>
 
       <div>
-        <strong data-lang="en">🇦🇺 Australia — Exchange Semester at UTS Sydney</strong>
-        <strong data-lang="de">🇦🇺 Australien — Auslandssemester an der UTS Sydney</strong><br />
-        <span data-lang="en" class="lang-inline">My first international experience abroad sparked my ambition to pursue a more internationally oriented business and marketing career.</span>
-        <span data-lang="de" class="lang-inline">Meine erste internationale Erfahrung weckte den Wunsch, eine stärker international ausgerichtete Business- und Marketingkarriere zu verfolgen.</span>
+        <strong class="lang-de">🇦🇺 Australien — Auslandssemester an der UTS Sydney</strong>
+        <strong class="lang-en">🇦🇺 Australia — Exchange Semester at UTS Sydney</strong>
+        <br />
+        <span class="lang-de inline">Meine erste internationale Erfahrung weckte den Wunsch, eine stärker international ausgerichtete Business- und Marketingkarriere zu verfolgen.</span>
+        <span class="lang-en inline">My first international experience abroad sparked my ambition to pursue a more internationally oriented business and marketing career.</span>
       </div>
 
       <div>
-        <strong>🇦🇺 BRITA Australia — Sales & Marketing Assistant</strong><br />
-        <span data-lang="en" class="lang-inline">Worked on market analysis, customer behaviour research, commercial feasibility assessment and strategic recommendations for a potential subscription model.</span>
-        <span data-lang="de" class="lang-inline">Durchführung von Marktanalysen, Customer Behaviour Research, Commercial Feasibility Assessment und strategischen Empfehlungen für ein potenzielles Subscription Model.</span>
+        <strong>🇦🇺 BRITA Australia — Sales & Marketing Assistant</strong>
+        <br />
+        <span class="lang-de inline">Durchführung von Marktanalysen, Customer Behaviour Research, Commercial Feasibility Assessment und strategischen Empfehlungen für ein potenzielles Subscription Model.</span>
+        <span class="lang-en inline">Worked on market analysis, customer behaviour research, commercial feasibility assessment and strategic recommendations for a potential subscription model.</span>
       </div>
 
       <div>
-        <strong>🇦🇺 University of Technology Sydney — Master of Business Management</strong><br />
-        <span data-lang="en" class="lang-inline">Focused on Global Supply Chain Management and Global Strategic Management, strengthening my understanding of international business, operations and strategic decision-making.</span>
-        <span data-lang="de" class="lang-inline">Fokus auf Global Supply Chain Management und Global Strategic Management mit Schwerpunkt auf internationalem Business, Operations und strategischer Entscheidungsfindung.</span>
-      </div>
-
-      <div>
-        <strong>🇦🇺 Tokyo Headspa Sydney — Marketing Intern</strong><br />
-        <span data-lang="en" class="lang-inline">Supported social media and EDM campaign management, competitive benchmarking, influencer research, content ideation and brand/service portfolio strategy.</span>
-        <span data-lang="de" class="lang-inline">Unterstützung bei Social Media und EDM Campaign Management, Competitive Benchmarking, Influencer Research, Content Ideation sowie Brand-/Service-Portfolio-Strategie.</span>
-      </div>
-
-      <div>
-        <strong data-lang="en">🇩🇪 Next Step: HARIBO Marketing DACH?</strong>
-        <strong data-lang="de">🇩🇪 Nächster Schritt: HARIBO Marketing DACH?</strong><br />
-        <span data-lang="en" class="lang-inline">I am now looking to bring my international experience, FMCG exposure and marketing curiosity back to Germany and contribute to a strong consumer brand.</span>
-        <span data-lang="de" class="lang-inline">Nun möchte ich meine internationale Erfahrung, meinen FMCG-Bezug und meine Marketingneugier zurück nach Deutschland bringen und zu einer starken Konsumgütermarke beitragen.</span>
+        <strong>🇦🇺 Tokyo Headspa Sydney — Marketing Intern</strong>
+        <br />
+        <span class="lang-de inline">Unterstützung bei Social Media und EDM Campaign Management, Competitive Benchmarking, Influencer Research, Content Ideation sowie Brand-/Service-Portfolio-Strategie.</span>
+        <span class="lang-en inline">Supported social media and EDM campaign management, competitive benchmarking, influencer research, content ideation and brand/service portfolio strategy.</span>
       </div>
     </div>
   </section>
 
   <section class="brand-band">
-    <h3 data-lang="en">Marketing That Brings Joy</h3>
-    <h3 data-lang="de">Marketing, das Freude bringt</h3>
-    <p data-lang="en">What excites me about HARIBO is that marketing is not only about products. It is about emotions, brand trust, consumer understanding and creating moments that people remember.</p>
-    <p data-lang="de">An HARIBO begeistert mich, dass Marketing nicht nur Produkte bewirbt. Es geht um Emotionen, Markenvertrauen, Konsumentenverständnis und Momente, die Menschen in Erinnerung bleiben.</p>
-    <p data-lang="en">HARIBO’s strong brand heritage, colourful product world and DACH marketing environment make the trainee program a particularly exciting opportunity for me.</p>
-    <p data-lang="de">Die starke Markenhistorie, die bunte Produktwelt und das Marketingumfeld im DACH-Raum machen das Traineeprogramm für mich besonders attraktiv.</p>
+    <h3 class="lang-de">Marketing, das Freude bringt</h3>
+    <h3 class="lang-en">Marketing That Brings Joy</h3>
+    <p class="lang-de">An HARIBO begeistert mich, dass Marketing nicht nur Produkte bewirbt. Es geht um Emotionen, Markenvertrauen, Konsumentenverständnis und Momente, die Menschen in Erinnerung bleiben.</p>
+    <p class="lang-en">What excites me about HARIBO is that marketing is not only about products. It is about emotions, brand trust, consumer understanding and creating moments that people remember.</p>
+    <p class="lang-de">Die starke Markenhistorie, die bunte Produktwelt und das Marketingumfeld im DACH-Raum machen das Traineeprogramm für mich besonders attraktiv.</p>
+    <p class="lang-en">HARIBO’s strong brand heritage, colourful product world and DACH marketing environment make the trainee program a particularly exciting opportunity for me.</p>
   </section>
 
   <section id="haribo">
@@ -743,140 +832,135 @@ padding-left:22px
     <div class="red-line"></div>
 
     <div class="intro">
-      <p data-lang="en">HARIBO stands out to me as one of the most iconic FMCG brands in Germany and internationally. The brand combines heritage, emotional connection, product variety and a clear consumer focus.</p>
-      <p data-lang="de">HARIBO ist für mich eine der ikonischsten FMCG-Marken in Deutschland und international. Die Marke verbindet Tradition, emotionale Nähe, Produktvielfalt und einen klaren Konsumentenfokus.</p>
+      <p class="lang-de">HARIBO ist für mich eine der ikonischsten FMCG-Marken in Deutschland und international. Die Marke verbindet Tradition, emotionale Nähe, Produktvielfalt und einen klaren Konsumentenfokus.</p>
+      <p class="lang-en">HARIBO stands out to me as one of the most iconic FMCG brands in Germany and internationally. The brand combines heritage, emotional connection, product variety and a clear consumer focus.</p>
 
-      <p data-lang="en">I am especially interested in the opportunity to contribute to the exact marketing areas described in the role: product innovations, relaunches, promotions, packaging development and market, competitor and assortment analyses within the DACH region.</p>
-      <p data-lang="de">Besonders spannend finde ich die Möglichkeit, genau an den in der Stellenbeschreibung genannten Themen mitzuwirken: Produktinnovationen, Relaunches, Promotions, Verpackungsentwicklung sowie Markt-, Wettbewerbs- und Sortimentsanalysen im DACH-Raum.</p>
+      <p class="lang-de">Besonders spannend finde ich die Möglichkeit, genau an den in der Stellenbeschreibung genannten Themen mitzuwirken: Produktinnovationen, Relaunches, Promotions, Verpackungsentwicklung sowie Markt-, Wettbewerbs- und Sortimentsanalysen im DACH-Raum.</p>
+      <p class="lang-en">I am especially interested in the opportunity to contribute to the exact marketing areas described in the role: product innovations, relaunches, promotions, packaging development and market, competitor and assortment analyses within the DACH region.</p>
 
-      <p data-lang="en">The trainee program appeals to me because it offers broad exposure across Marketing and its key interfaces, including Trade Marketing, Key Account Management, Field Sales and Research & Development. I also value the structured development through rotations, mentoring, trainee seminars and regular development conversations.</p>
-      <p data-lang="de">Das Traineeprogramm spricht mich an, weil es breite Einblicke in das Marketing und seine zentralen Schnittstellen bietet – darunter Trade Marketing, Key Account Management, Außendienst und Forschung & Entwicklung. Auch die strukturierte Entwicklung durch Rotationen, Mentoring, Trainee-Seminare und regelmäßige Entwicklungsgespräche finde ich sehr wertvoll.</p>
-
-      <p data-lang="en">After studying and working in Australia, I am looking for a role where I can combine my international perspective with hands-on FMCG marketing and contribute to a brand that reaches consumers every day.</p>
-      <p data-lang="de">Nach meinem Studium und meiner Arbeitserfahrung in Australien suche ich eine Rolle, in der ich meine internationale Perspektive mit hands-on FMCG-Marketing verbinden und zu einer Marke beitragen kann, die Konsument:innen täglich erreicht.</p>
+      <p class="lang-de">Das Traineeprogramm spricht mich an, weil es breite Einblicke in das Marketing und seine zentralen Schnittstellen bietet – darunter Trade Marketing, Key Account Management, Außendienst und Forschung & Entwicklung. Auch die strukturierte Entwicklung durch Rotationen, Mentoring, Trainee-Seminare und regelmäßige Entwicklungsgespräche finde ich sehr wertvoll.</p>
+      <p class="lang-en">The trainee program appeals to me because it offers broad exposure across Marketing and its key interfaces, including Trade Marketing, Key Account Management, Field Sales and Research & Development. I also value the structured development through rotations, mentoring, trainee seminars and regular development conversations.</p>
     </div>
   </section>
 
   <section id="program">
-    <h3 data-lang="en">Why This Program Fits Me</h3>
-    <h3 data-lang="de">Warum dieses Programm zu mir passt</h3>
+    <h3 class="lang-de">Warum dieses Programm zu mir passt</h3>
+    <h3 class="lang-en">Why This Program Fits Me</h3>
     <div class="red-line"></div>
 
     <div class="program-grid">
       <div class="program-box">
         <div class="emoji">🚀</div>
-        <h4 data-lang="en">Product Innovations, Relaunches & Promotions</h4>
-        <h4 data-lang="de">Produktinnovationen, Relaunches & Promotions</h4>
-        <p data-lang="en">The role description highlights product innovations, relaunches and promotions. This strongly appeals to me because I want to learn how consumer insights, brand strategy and commercial objectives are translated into concrete FMCG initiatives.</p>
-        <p data-lang="de">Die Stellenbeschreibung betont Produktinnovationen, Relaunches und Promotions. Das spricht mich sehr an, weil ich lernen möchte, wie Consumer Insights, Markenstrategie und kommerzielle Ziele in konkrete FMCG-Initiativen übersetzt werden.</p>
+        <h4 class="lang-de">Produktinnovationen, Relaunches & Promotions</h4>
+        <h4 class="lang-en">Product Innovations, Relaunches & Promotions</h4>
+        <p class="lang-de">Die Stellenbeschreibung betont Produktinnovationen, Relaunches und Promotions. Das spricht mich sehr an, weil ich lernen möchte, wie Consumer Insights, Markenstrategie und kommerzielle Ziele in konkrete FMCG-Initiativen übersetzt werden.</p>
+        <p class="lang-en">The role description highlights product innovations, relaunches and promotions. This strongly appeals to me because I want to learn how consumer insights, brand strategy and commercial objectives are translated into concrete FMCG initiatives.</p>
       </div>
 
       <div class="program-box">
         <div class="emoji">📦</div>
-        <h4 data-lang="en">Packaging Development & Assortment Thinking</h4>
-        <h4 data-lang="de">Verpackungsentwicklung & Sortimentsdenken</h4>
-        <p data-lang="en">HARIBO’s focus on packaging development and assortment analysis fits my interest in how products are presented, differentiated and made relevant at the point of sale.</p>
-        <p data-lang="de">HARIBOs Fokus auf Verpackungsentwicklung und Sortimentsanalysen passt zu meinem Interesse daran, wie Produkte am Point of Sale präsentiert, differenziert und relevant gemacht werden.</p>
+        <h4 class="lang-de">Verpackungsentwicklung & Sortimentsdenken</h4>
+        <h4 class="lang-en">Packaging Development & Assortment Thinking</h4>
+        <p class="lang-de">HARIBOs Fokus auf Verpackungsentwicklung und Sortimentsanalysen passt zu meinem Interesse daran, wie Produkte am Point of Sale präsentiert, differenziert und relevant gemacht werden.</p>
+        <p class="lang-en">HARIBO’s focus on packaging development and assortment analysis fits my interest in how products are presented, differentiated and made relevant at the point of sale.</p>
       </div>
 
       <div class="program-box">
         <div class="emoji">📈</div>
-        <h4 data-lang="en">Market, Competitor & Consumer Analysis</h4>
-        <h4 data-lang="de">Markt-, Wettbewerbs- & Konsumentenanalyse</h4>
-        <p data-lang="en">My experience at BRITA Australia involved market analysis, customer segmentation, customer behaviour research and commercial feasibility assessment. This directly matches HARIBO’s requirement to support market, competitor and assortment analyses and derive actionable recommendations.</p>
-        <p data-lang="de">Meine Erfahrung bei BRITA Australia umfasste Marktanalysen, Kundensegmentierung, Customer Behaviour Research und Commercial Feasibility Assessment. Das passt direkt zu HARIBOs Anforderungen im Bereich Markt-, Wettbewerbs- und Sortimentsanalysen sowie Handlungsempfehlungen.</p>
+        <h4 class="lang-de">Markt-, Wettbewerbs- & Konsumentenanalyse</h4>
+        <h4 class="lang-en">Market, Competitor & Consumer Analysis</h4>
+        <p class="lang-de">Meine Erfahrung bei BRITA Australia umfasste Marktanalysen, Kundensegmentierung, Customer Behaviour Research und Commercial Feasibility Assessment. Das passt direkt zu HARIBOs Anforderungen im Bereich Markt-, Wettbewerbs- und Sortimentsanalysen sowie Handlungsempfehlungen.</p>
+        <p class="lang-en">My experience at BRITA Australia involved market analysis, customer segmentation, customer behaviour research and commercial feasibility assessment. This directly matches HARIBO’s requirement to support market, competitor and assortment analyses and derive actionable recommendations.</p>
       </div>
 
       <div class="program-box">
         <div class="emoji">🤝</div>
-        <h4 data-lang="en">Trade Marketing, KAM, Field Sales & R&D</h4>
-        <h4 data-lang="de">Trade Marketing, KAM, Außendienst & R&D</h4>
-        <p data-lang="en">The close collaboration with Trade Marketing, Key Account Management, Field Sales and Research & Development is particularly attractive to me.</p>
-        <p data-lang="de">Die enge Zusammenarbeit mit Trade Marketing, Key Account Management, Außendienst und Forschung & Entwicklung finde ich besonders attraktiv.</p>
+        <h4 class="lang-de">Trade Marketing, KAM, Außendienst & R&D</h4>
+        <h4 class="lang-en">Trade Marketing, KAM, Field Sales & R&D</h4>
+        <p class="lang-de">Die enge Zusammenarbeit mit Trade Marketing, Key Account Management, Außendienst und Forschung & Entwicklung finde ich besonders attraktiv.</p>
+        <p class="lang-en">The close collaboration with Trade Marketing, Key Account Management, Field Sales and Research & Development is particularly attractive to me.</p>
       </div>
     </div>
   </section>
 
   <section id="requirements">
-    <h3 data-lang="en">Direct Match With HARIBO’s Requirements</h3>
-    <h3 data-lang="de">Direkter Fit zu HARIBOs Anforderungen</h3>
+    <h3 class="lang-de">Direkter Fit zu HARIBOs Anforderungen</h3>
+    <h3 class="lang-en">Direct Match With HARIBO’s Requirements</h3>
     <div class="red-line"></div>
 
-    <p class="section-subtitle" data-lang="en">The role description asks for a completed Master’s degree with marketing focus, first marketing or brand management experience, structured and independent working, creativity, analytical thinking, hands-on mentality, curiosity and a strong sense for brands, target groups and trends.</p>
-    <p class="section-subtitle" data-lang="de">Die Stelle sucht ein abgeschlossenes Masterstudium mit Marketingbezug, erste Marketing- oder Brand-Management-Erfahrung, strukturierte und selbstständige Arbeitsweise, Kreativität, analytisches Denken, Hands-on-Mentalität, Neugier und ein gutes Gespür für Marken, Zielgruppen und Trends.</p>
+    <p class="section-subtitle lang-de">Die Stelle sucht ein abgeschlossenes Masterstudium mit Marketingbezug, erste Marketing- oder Brand-Management-Erfahrung, strukturierte und selbstständige Arbeitsweise, Kreativität, analytisches Denken, Hands-on-Mentalität, Neugier und ein gutes Gespür für Marken, Zielgruppen und Trends.</p>
+    <p class="section-subtitle lang-en">The role description asks for a completed Master’s degree with marketing focus, first marketing or brand management experience, structured and independent working, creativity, analytical thinking, hands-on mentality, curiosity and a strong sense for brands, target groups and trends.</p>
 
     <div class="cards">
       <div class="card accent">
         <div class="emoji">🎓</div>
-        <h4 data-lang="en">Master’s Degree With Business & Marketing Foundation</h4>
-        <h4 data-lang="de">Masterstudium mit Business- & Marketingfundament</h4>
-        <p data-lang="en">I am currently completing my Master of Business Management at UTS and hold a Bachelor’s degree in Business Administration with a foundation in Marketing, International Management and Organisational Psychology.</p>
-        <p data-lang="de">Ich schließe aktuell meinen Master of Business Management an der UTS ab und habe einen Bachelor in Business Administration mit Grundlagen in Marketing, International Management und Organisationspsychologie.</p>
+        <h4 class="lang-de">Masterstudium mit Business- & Marketingfundament</h4>
+        <h4 class="lang-en">Master’s Degree With Business & Marketing Foundation</h4>
+        <p class="lang-de">Ich schließe aktuell meinen Master of Business Management an der UTS ab und habe einen Bachelor in Business Administration mit Grundlagen in Marketing, International Management und Organisationspsychologie.</p>
+        <p class="lang-en">I am currently completing my Master of Business Management at UTS and hold a Bachelor’s degree in Business Administration with a foundation in Marketing, International Management and Organisational Psychology.</p>
       </div>
 
       <div class="card accent">
         <div class="emoji">🍬</div>
-        <h4 data-lang="en">First Marketing / FMCG Experience</h4>
-        <h4 data-lang="de">Erste Marketing- / FMCG-Erfahrung</h4>
-        <p data-lang="en">At BRITA Australia, I gained FMCG-related Sales & Marketing experience, including customer behaviour research, market analysis, commercial feasibility assessment and strategic recommendations.</p>
-        <p data-lang="de">Bei BRITA Australia sammelte ich FMCG-nahe Sales-&-Marketing-Erfahrung, unter anderem in Customer Behaviour Research, Marktanalyse, Commercial Feasibility Assessment und strategischen Empfehlungen.</p>
+        <h4 class="lang-de">Erste Marketing- / FMCG-Erfahrung</h4>
+        <h4 class="lang-en">First Marketing / FMCG Experience</h4>
+        <p class="lang-de">Bei BRITA Australia sammelte ich FMCG-nahe Sales-&-Marketing-Erfahrung, unter anderem in Customer Behaviour Research, Marktanalyse, Commercial Feasibility Assessment und strategischen Empfehlungen.</p>
+        <p class="lang-en">At BRITA Australia, I gained FMCG-related Sales & Marketing experience, including customer behaviour research, market analysis, commercial feasibility assessment and strategic recommendations.</p>
       </div>
 
       <div class="card accent">
         <div class="emoji">🎯</div>
-        <h4 data-lang="en">Sense for Brands, Target Groups & Trends</h4>
-        <h4 data-lang="de">Gespür für Marken, Zielgruppen & Trends</h4>
-        <p data-lang="en">Through BRITA and Tokyo Headspa, I worked with customer insights, competitive benchmarking and market positioning.</p>
-        <p data-lang="de">Durch BRITA und Tokyo Headspa arbeitete ich mit Customer Insights, Competitive Benchmarking und Marktpositionierung.</p>
+        <h4 class="lang-de">Gespür für Marken, Zielgruppen & Trends</h4>
+        <h4 class="lang-en">Sense for Brands, Target Groups & Trends</h4>
+        <p class="lang-de">Durch BRITA und Tokyo Headspa arbeitete ich mit Customer Insights, Competitive Benchmarking und Marktpositionierung.</p>
+        <p class="lang-en">Through BRITA and Tokyo Headspa, I worked with customer insights, competitive benchmarking and market positioning.</p>
       </div>
     </div>
   </section>
 
   <section id="ideas">
-    <h3 data-lang="en">Three Topics I Find Exciting in FMCG Marketing</h3>
-    <h3 data-lang="de">Drei Themen, die ich im FMCG-Marketing spannend finde</h3>
+    <h3 class="lang-de">Drei Themen, die ich im FMCG-Marketing spannend finde</h3>
+    <h3 class="lang-en">Three Topics I Find Exciting in FMCG Marketing</h3>
     <div class="red-line"></div>
 
     <div class="cards">
       <div class="card accent">
         <div class="emoji">💡</div>
-        <h4 data-lang="en">Consumer-Centric Brands</h4>
-        <h4 data-lang="de">Konsumentenorientierte Marken</h4>
-        <p data-lang="en">Strong FMCG brands are built by understanding consumer needs, emotions and usage occasions — and translating them into relevant products and campaigns.</p>
-        <p data-lang="de">Starke FMCG-Marken entstehen durch das Verständnis von Konsumentenbedürfnissen, Emotionen und Nutzungssituationen – und deren Übersetzung in relevante Produkte und Kampagnen.</p>
+        <h4 class="lang-de">Konsumentenorientierte Marken</h4>
+        <h4 class="lang-en">Consumer-Centric Brands</h4>
+        <p class="lang-de">Starke FMCG-Marken entstehen durch das Verständnis von Konsumentenbedürfnissen, Emotionen und Nutzungssituationen – und deren Übersetzung in relevante Produkte und Kampagnen.</p>
+        <p class="lang-en">Strong FMCG brands are built by understanding consumer needs, emotions and usage occasions — and translating them into relevant products and campaigns.</p>
       </div>
 
       <div class="card accent">
         <div class="emoji">📦</div>
-        <h4 data-lang="en">Packaging & Shelf Impact</h4>
-        <h4 data-lang="de">Packaging & Shelf Impact</h4>
-        <p data-lang="en">Packaging plays a key role in FMCG because it connects brand identity, product communication and purchase decisions directly at the point of sale.</p>
-        <p data-lang="de">Verpackung spielt im FMCG eine zentrale Rolle, weil sie Markenidentität, Produktkommunikation und Kaufentscheidung direkt am Point of Sale verbindet.</p>
+        <h4>Packaging & Shelf Impact</h4>
+        <p class="lang-de">Verpackung spielt im FMCG eine zentrale Rolle, weil sie Markenidentität, Produktkommunikation und Kaufentscheidung direkt am Point of Sale verbindet.</p>
+        <p class="lang-en">Packaging plays a key role in FMCG because it connects brand identity, product communication and purchase decisions directly at the point of sale.</p>
       </div>
 
       <div class="card accent">
         <div class="emoji">🎯</div>
-        <h4 data-lang="en">Promotions & Trade Marketing</h4>
-        <h4 data-lang="de">Promotions & Trade Marketing</h4>
-        <p data-lang="en">Promotions and trade marketing create the bridge between brand strategy and retail execution, helping brands stay visible, relevant and commercially successful.</p>
-        <p data-lang="de">Promotions und Trade Marketing bilden die Brücke zwischen Markenstrategie und Retail Execution und helfen Marken, sichtbar, relevant und kommerziell erfolgreich zu bleiben.</p>
+        <h4>Promotions & Trade Marketing</h4>
+        <p class="lang-de">Promotions und Trade Marketing bilden die Brücke zwischen Markenstrategie und Retail Execution und helfen Marken, sichtbar, relevant und kommerziell erfolgreich zu bleiben.</p>
+        <p class="lang-en">Promotions and trade marketing create the bridge between brand strategy and retail execution, helping brands stay visible, relevant and commercially successful.</p>
       </div>
     </div>
   </section>
 
   <section class="highlight">
-    <h3 data-lang="en">My Motivation</h3>
-    <h3 data-lang="de">Meine Motivation</h3>
+    <h3 class="lang-de">Meine Motivation</h3>
+    <h3 class="lang-en">My Motivation</h3>
     <div class="red-line"></div>
 
-    <p data-lang="en">I moved across continents to challenge myself, studied and worked in international environments and developed a strong passion for marketing, customer insights and brand-driven business growth.</p>
-    <p data-lang="de">Ich bin über Kontinente hinweg gegangen, um mich weiterzuentwickeln, habe in internationalen Umfeldern studiert und gearbeitet und dabei eine starke Leidenschaft für Marketing, Customer Insights und markengetriebenes Wachstum entwickelt.</p>
+    <p class="lang-de">Ich bin über Kontinente hinweg gegangen, um mich weiterzuentwickeln, habe in internationalen Umfeldern studiert und gearbeitet und dabei eine starke Leidenschaft für Marketing, Customer Insights und markengetriebenes Wachstum entwickelt.</p>
+    <p class="lang-en">I moved across continents to challenge myself, studied and worked in international environments and developed a strong passion for marketing, customer insights and brand-driven business growth.</p>
 
-    <p data-lang="en">Now I am looking for an environment where I can continue learning, take responsibility and contribute to meaningful FMCG marketing projects — from product innovation and promotions to market analysis, packaging development and trade marketing.</p>
-    <p data-lang="de">Jetzt suche ich ein Umfeld, in dem ich weiter lernen, Verantwortung übernehmen und zu relevanten FMCG-Marketingprojekten beitragen kann – von Produktinnovationen und Promotions bis hin zu Marktanalysen, Verpackungsentwicklung und Trade Marketing.</p>
+    <p class="lang-de">Jetzt suche ich ein Umfeld, in dem ich weiter lernen, Verantwortung übernehmen und zu relevanten FMCG-Marketingprojekten beitragen kann – von Produktinnovationen und Promotions bis hin zu Marktanalysen, Verpackungsentwicklung und Trade Marketing.</p>
+    <p class="lang-en">Now I am looking for an environment where I can continue learning, take responsibility and contribute to meaningful FMCG marketing projects — from product innovation and promotions to market analysis, packaging development and trade marketing.</p>
 
-    <p data-lang="en">For me, HARIBO’s Trainee Marketing DACH program is exactly that opportunity.</p>
-    <p data-lang="de">Für mich ist das HARIBO Traineeprogramm Marketing DACH genau diese Möglichkeit.</p>
+    <p class="lang-de">Für mich ist das HARIBO Traineeprogramm Marketing DACH genau diese Möglichkeit.</p>
+    <p class="lang-en">For me, HARIBO’s Trainee Marketing DACH program is exactly that opportunity.</p>
   </section>
 
   <footer id="contact">
@@ -886,17 +970,29 @@ padding-left:22px
   </footer>
 
   <script>
-    const toggle = document.getElementById("languageToggle");
-    const body = document.body;
+    const toggleButton = document.getElementById("languageToggle");
 
-    toggle.addEventListener("click", () => {
-      const isGerman = body.classList.toggle("lang-de");
-      body.classList.toggle("lang-en", !isGerman);
-      toggle.textContent = isGerman ? "English" : "Deutsch";
-      document.documentElement.lang = isGerman ? "de" : "en";
+    function setLanguage(language) {
+      if (language === "en") {
+        document.body.classList.remove("show-de");
+        document.body.classList.add("show-en");
+        document.documentElement.lang = "en";
+        toggleButton.textContent = "Deutsch";
+      } else {
+        document.body.classList.remove("show-en");
+        document.body.classList.add("show-de");
+        document.documentElement.lang = "de";
+        toggleButton.textContent = "English";
+      }
+    }
+
+    toggleButton.addEventListener("click", function () {
+      const currentlyGerman = document.body.classList.contains("show-de");
+      setLanguage(currentlyGerman ? "en" : "de");
     });
+
+    setLanguage("de");
   </script>
 
 </body>
-</body>
-  </html>
+</html>
